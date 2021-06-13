@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+
+            width: 70%;
+            margin: 10px auto;
+            border: 1px solid black;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: rgb(247, 177, 177);
+        }
+
+        .btn:hover {
+            background-color: brown;
+            color: #fff;
+        }
+
+        .container>h1 {
+            /* border: 1px solid black; */
+            text-align: center;
+        }
+
+
+        .container-1 {
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            padding: 3%;
+
+        }
+
+        .container-1>img {
+            width: 27%;
+            height: auto;
+            margin: 3%;
+        }
+
+        @media (max-width:900px) and (min-width:481px) {
+            .container {
+
+                width: 80%;
+                margin: 10px auto;
+                border: 1px solid black;
+                align-items: center;
+            }
+
+            .container-1 {
+                border: 1px solid black;
+                display: flex;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+                padding: 3%;
+
+            }
+
+            .container-1>img {
+                width: 40%;
+                height: auto;
+                margin: 3%;
+            }
+
+        }
+
+        @media (max-width:480px) {
+            .container {
+
+                width: 90%;
+                margin: 10px auto;
+                border: 1px solid black;
+                align-items: center;
+            }
+
+            .container-1 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container-1>img {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Click button to create cat images</h1>
+        <div class="container-1">
+            <button class="btn" onclick="generate()">Genrate images</button>
+            <button class="btn" onclick="reload()">Remove images</button>
+
+        </div>
+        <div class="container-1" id="getimages">
+        </div>
+    </div>
+
+
+    <script>
+        function generate() {
+            var num = prompt("Please enter the no. of images you want to make: ");
+            for (var i = 1; i <= num; i++) {
+                var image = document.createElement('img');
+                image.src = "https://picsum.photos/200/300?random=" + i;
+                document.getElementById('getimages').appendChild(image);
+
+            }
+        }
+
+        function reload() {
+            document.getElementById("getimages").innerHTML = "";
+        }
+
+    </script>
+</body>
+
+</html>
